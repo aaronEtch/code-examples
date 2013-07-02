@@ -4,13 +4,14 @@ $username = $_POST['username'];
 // sets username equal to the posted variable "username" from the form on the submited page
 if(!isset($_SESSION['session']["logged_in"])) {
 // checks to see if a session has already been started (sesson is not NULL), and if not (is NULL), redirects the browser to login.php 
+// will need session_start(); above this
   header("Location: login.php");
 // redirect to login.php
 }
 if (isset($_GET['username'])
 // checks to see if username is a paramnter in the url ($_GET)
-// Suggestion: add closing quote at and and use $_POST (isset($_GET['username']))
-//  get or you could use this  - if (isset($username))
+// Suggestion: add closing parenthesis at and and use $_POST (isset($_POST['username']))
+// Unless it was necessary to use $_GET, but a clossing parenthesis is needed
 { 
   $username = filterinput($_POST['username']);
   // sets username equal to the output of function filterinput() with the paramnter of the form posted value of username
